@@ -156,7 +156,11 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
-        margin-bottom: 2rem;
+        position: sticky;
+        top: 0;
+        background-color: #111111;
+        padding: 1rem 0;
+        z-index: 100;
     }
     .resource-button {
         background-color: #2a2a2a;
@@ -206,6 +210,7 @@
         <p class="text-center max-w-3xl mx-auto">Here, I share valuable resources that you can utilize to fill the knowledge gap for you, this is for aspiring or established entrepreneurs. My goal is to provide as many high-value resources as possible to individuals that can utilize to eliminate making erroneous decisions and progress further into the nature of success. These resources, insights, and tools should inspire and guide you on your own path to an entrepreneurial victory. Remember, there aren't any secrets to success, it's just stuff you haven't learn yet. Ultimately, fear is the gravitational force holding you down, so learn to see far beyond it, do what it takes, that is whats required in order to achieve the unthinkable.</p>
     </section>
 
+    <h2>Resources for Growth and Success</h2>
     <div class="resource-buttons">
         <button class="resource-button" data-section="audiobooks">Audiobooks</button>
         <button class="resource-button" data-section="documentaries">Documentaries</button>
@@ -216,9 +221,7 @@
         <button class="resource-button" data-section="programs">Programs</button>
         <button class="resource-button" data-section="platforms">Platforms</button>
     </div>
-
-    <section id="resourcesContent" class="hidden">
-        <h2>Resources for Growth and Success</h2>
+    <section id="resourcesContent">
         <div id="resourceSection"></div>
     </section>
 
@@ -243,6 +246,7 @@
 </footer>
 
 <script>
+    import { Home } from 'lucide-react';
     const quotes = [
         "Success is not final; failure is not fatal.",
         "Innovation distinguishes between a leader and a follower.",
@@ -489,10 +493,12 @@
     }
 
     function showSection(sectionId) {
-        document.querySelectorAll('main > section').forEach(section => {
+        document.querySelectorAll('main > section:not(#resourcesContent)').forEach(section => {
             section.classList.add('hidden');
         });
-        document.getElementById(sectionId).classList.remove('hidden');
+        if (sectionId !== 'resourcesContent') {
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function() {
