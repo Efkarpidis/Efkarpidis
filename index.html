@@ -39,17 +39,24 @@
           border-radius: 50%;
           margin-right: 1rem;
       }
-      .dropdown {
-          position: relative;
-          display: inline-block;
+      .nav-buttons {
+          display: flex;
+          gap: 1rem;
       }
-      .dropbtn {
+      .nav-button {
           background-color: #1a1a1a;
           color: white;
           padding: 10px;
           font-size: 16px;
           border: none;
           cursor: pointer;
+      }
+      .nav-button:hover {
+          background-color: #2a2a2a;
+      }
+      .dropdown {
+          position: relative;
+          display: inline-block;
       }
       .dropdown-content {
           display: none;
@@ -70,9 +77,6 @@
       }
       .dropdown:hover .dropdown-content {
           display: block;
-      }
-      .dropdown:hover .dropbtn {
-          background-color: #2a2a2a;
       }
       main {
           padding: 2rem 0;
@@ -136,7 +140,6 @@
           margin-left: auto;
           margin-right: auto;
       }
-
       .quote-box {
           background-color: rgba(255, 255, 255, 0.05);
           border-radius: 10px;
@@ -147,7 +150,6 @@
           position: relative;
           overflow: hidden;
       }
-
       .quote-box::before {
           content: '"';
           position: absolute;
@@ -157,7 +159,6 @@
           color: rgba(255, 255, 255, 0.1);
           font-family: Georgia, serif;
       }
-
       .quote-box .quote {
           font-size: 1.4em;
           line-height: 1.6;
@@ -165,12 +166,35 @@
           position: relative;
           z-index: 1;
       }
-
       .quote-box .quote-author {
           font-style: italic;
           text-align: right;
           color: #888;
           font-size: 1.1em;
+      }
+      .hidden {
+          display: none;
+      }
+      .resource-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+      }
+
+      .resource-button {
+          background-color: #2a2a2a;
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+
+      .resource-button:hover {
+          background-color: #3a3a3a;
       }
   </style>
 </head>
@@ -183,53 +207,29 @@
             <h1>Chris Efkarpidis</h1>
         </div>
     </div>
-    <div class="dropdown">
-        <button class="dropbtn">Resources ▼</button>
-        <div class="dropdown-content">
-            <a href="#" data-section="audiobooks">Audiobooks</a>
-            <a href="#" data-section="documentaries">Documentaries</a>
-            <a href="#" data-section="movies">Movies</a>
-            <a href="#" data-section="articles">Articles</a>
-            <a href="#" data-section="videos">Videos</a>
-            <a href="#" data-section="courses">Courses</a>
-            <a href="#" data-section="programs">Programs</a>
-            <a href="#" data-section="platforms">Platforms</a>
-        </div>
-    </div>
 </header>
 
   <main class="container">
-      <section>
-          <h2>For Myself and the Entrepreneurial Leaders of Our Time</h2>
-          <p class="text-center max-w-3xl mx-auto">Here, I share valuable resources that you can utilize to fill the knowledge gap for you, this is for aspiring or established entrepreneurs. My goal is to provide as many high-value resources as possible to individuals that can utilize to eliminate making erroneous decisions and progress further into the nature of success. These resources, insights, and tools should inspire and guide you on your own path to an entrepreneurial victory. Remember, there aren't any secrets to success, it's just stuff you haven't learn yet. Ultimately, fear is the gravitational force holding you down, so learn to see far beyond it, do what it takes, that is whats required in order to achieve the unthinkable.</p>
-          </section>
+    <section id="homeContent">
+        <h2>For Myself and the Entrepreneurial Leaders of Our Time</h2>
+        <p class="text-center max-w-3xl mx-auto">Here, I share valuable resources that you can utilize to fill the knowledge gap for you, this is for aspiring or established entrepreneurs. My goal is to provide as many high-value resources as possible to individuals that can utilize to eliminate making erroneous decisions and progress further into the nature of success. These resources, insights, and tools should inspire and guide you on your own path to an entrepreneurial victory. Remember, there aren't any secrets to success, it's just stuff you haven't learn yet. Ultimately, fear is the gravitational force holding you down, so learn to see far beyond it, do what it takes, that is whats required in order to achieve the unthinkable.</p>
 
-      <section>
-          <h2>Resources for Growth and Success</h2>
-          <div class="quote-box">
-              <blockquote class="quote">
-                  "There is no friend as loyal as a book."
-              </blockquote>
-              <footer class="quote-author">- Ernest Hemingway</footer>
-          </div>
-          <div id="resourceSection"></div>
-      </section>
+        <div class="resource-buttons">
+            <button class="resource-button" data-section="audiobooks">Audiobooks</button>
+            <button class="resource-button" data-section="documentaries">Documentaries</button>
+            <button class="resource-button" data-section="movies">Movies</button>
+            <button class="resource-button" data-section="articles">Articles</button>
+            <button class="resource-button" data-section="videos">Videos</button>
+            <button class="resource-button" data-section="courses">Courses</button>
+            <button class="resource-button" data-section="programs">Programs</button>
+            <button class="resource-button" data-section="platforms">Platforms</button>
+        </div>
+    </section>
 
-      <section>
-          <h2>My Perspective on Entrepreneurship</h2>
-          <div class="card">
-              <h3>Key Factors for Success</h3>
-              <p>These are the crucial elements that I believe shape an entrepreneur's journey.</p>
-              <ul id="keyFactors"></ul>
-              <p>Each of these factors plays a crucial role in the entrepreneurial journey. I'll be diving deeper into these topics in future content.</p>
-          </div>
-      </section>
-
-      <section>
-          <h2>Inspiring Quotes</h2>
-          <div id="inspiringQuotes"></div>
-      </section>
-  </main>
+    <section id="resourcesContent" class="hidden">
+        <div id="resourceSection"></div>
+    </section>
+</main>
 
   <footer>
       <p>&copy; <span id="currentYear"></span> Chris Efkarpidis. All rights reserved.</p>
@@ -404,8 +404,20 @@
           let html = `
               <h3>${section.charAt(0).toUpperCase() + section.slice(1)}</h3>
               <p>Explore our curated list of ${section}.</p>
-              <div class="resource-list">
           `;
+
+          if (section === 'audiobooks') {
+              html += `
+              <div class="quote-box">
+                  <blockquote class="quote">
+                      "There is no friend as loyal as a book."
+                  </blockquote>
+                  <footer class="quote-author">- Ernest Hemingway</footer>
+              </div>
+              `;
+          }
+
+          html += '<div class="resource-list">';
           
           resources.forEach(resource => {
               html += `
@@ -469,19 +481,30 @@
           });
       }
 
+      function showSection(sectionId) {
+          const resourcesContent = document.getElementById('resourcesContent');
+          if (sectionId === 'resourcesContent') {
+              resourcesContent.classList.remove('hidden');
+          } else {
+              resourcesContent.classList.add('hidden');
+          }
+      }
+
       document.addEventListener('DOMContentLoaded', function() {
           createQuoteBackground();
-          updateResourceSection('audiobooks');
           populateKeyFactors();
           populateInspiringQuotes();
           document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-          const dropdownLinks = document.querySelectorAll('.dropdown-content a');
-          dropdownLinks.forEach(link => {
-              link.addEventListener('click', function(e) {
-                  e.preventDefault();
+          const resourceButtons = document.querySelectorAll('.resource-button');
+          resourceButtons.forEach(button => {
+              button.addEventListener('click', function() {
                   const section = this.getAttribute('data-section');
                   updateResourceSection(section);
+                  showSection('resourcesContent');
+                  
+                  // Scroll to the resource section
+                  document.getElementById('resourcesContent').scrollIntoView({ behavior: 'smooth' });
               });
           });
       });
