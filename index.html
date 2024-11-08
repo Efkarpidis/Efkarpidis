@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Efkarpidis - Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111111;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #e7e7e7;
+        }
+        main {
+            padding: 2rem 0;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .quote {
+            font-style: italic;
+            text-align: center;
+        }
+        .quote-author {
+            text-align: right;
+            color: #888;
+        }
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .resource-item {
+            background-color: #2a2a2a;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        footer {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        .quote-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .quote-background div {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.05);
+            transform: rotate(-5deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="quote-background" id="quoteBackground"></div>
+    <header>
+        <div class="profile">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0798-veGeabXlzzGHuD01vJwkx5fdvBUqSx.jpeg" alt="Chris Efkarpidis">
+            <h1>Chris Efkarpidis</h1>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Resources ▼</button>
+            <div class="dropdown-content">
+                <a href="#" data-section="audiobooks">Audiobooks</a>
+                <a href="#" data-section="documentaries">Documentaries</a>
+                <a href="#" data-section="movies">Movies</a>
+                <a href="#" data-section="articles">Articles</a>
+                <a href="#" data-section="videos">Videos</a>
+                <a href="#" data-section="courses">Courses</a>
+                <a href="#" data-section="programs">Programs</a>
+                <a href="#" data-section="platforms">Platforms</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Welcome to My Personal Website</h2>
+            <p>Here, I share valuable resources that you can utilize to fill the knowledge gap for you, this is for aspiring or established entrepreneurs. My goal is to provide as many high-value resources as possible to individuals that can utilize to eliminate making erroneous decisions and progress further into the nature of success. These resources, insights, and tools should inspire and guide you on your own path to an entrepreneurial victory. Remember, there aren't any secrets to success, it's just stuff you haven't learn yet. Ultimately, fear is the gravitational force holding you down, so learn to see far beyond it, do what it takes, that is whats required in order to achieve the unthinkable.</p>
+            <p>Founder of 
+                <a href="https://www.boostedearnings.com" target="_blank" rel="noopener noreferrer">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Asset%201@4x-8%20copy-Pi0nsNdSrndPz9t19qohDch3OhhHt9.png" alt="Boosted Earnings" style="height: 32px; width: auto; vertical-align: middle;">
+                </a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Resources for Growth and Success</h2>
+            <div class="card">
+                <blockquote class="quote">
+                    "There is no friend as loyal as a book."
+                    <footer class="quote-author">- Ernest Hemingway</footer>
+                </blockquote>
+            </div>
+            <div id="resourceSection"></div>
+        </section>
+
+        <section>
+            <h2>My Perspective on Entrepreneurship</h2>
+            <div class="card">
+                <h3>Key Factors for Success</h3>
+                <p>These are the crucial elements that I believe shape an entrepreneur's journey.</p>
+                <ul id="keyFactors"></ul>
+                <p>Each of these factors plays a crucial role in the entrepreneurial journey. I'll be diving deeper into these topics in future content.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Inspiring Quotes</h2>
+            <div id="inspiringQuotes"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Chris Efkarpidis. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const quotes = [
+            "Success is not final; failure is not fatal.",
+            "Innovation distinguishes between a leader and a follower.",
+            "The only way to do great work is to love what you do.",
+            "Stay hungry, stay foolish.",
+            "Think different.",
+            "The key to happiness is to be consistently learning, progressing, and achieving.",
+            "You have everything you need to build something far bigger than yourself.",
+            "The mind is everything. What you think you become.",
+            "What gets measured, gets managed. What gets managed, gets improved.",
+        ];
+
+        const quoteAuthors = [
+            "", "", "", "", "",
+            "Michael Singer",
+            "Seth Godin",
+            "Buddha",
+            "Peter F. Drucker",
+        ];
+
+        function createQuoteBackground() {
+            const background = document.getElementById('quoteBackground');
+            const gridSize = 3;
+            const cellSize = 100 / gridSize;
+
+            quotes.forEach((quote, index) => {
+                const quoteElement = document.createElement('div');
+                const row = Math.floor(index / gridSize);
+                const col = index % gridSize;
+                const top = row * cellSize + 5 + Math.random() * 10;
+                const left = col * cellSize + 5 + Math.random() * 10;
+
+                quoteElement.textContent = quote;
+                quoteElement.style.top = `${top}%`;
+                quoteElement.style.left = `${left}%`;
+                quoteElement.style.maxWidth = `${cellSize - 10}%`;
+
+                if (quoteAuthors[index]) {
+                    const authorElement = document.createElement('span');
+                    authorElement.textContent = `- ${quoteAuthors[index]}`;
+                    authorElement.style.display = 'block';
+                    authorElement.style.marginTop = '0.5em';
+                    authorElement.style.fontSize = '0.8em';
+                    quoteElement.appendChild(authorElement);
+                }
+
+                background.appendChild(quoteElement);
+            });
+        }
+
+        const resourceMap = {
+            audiobooks: [
+                { title: "Running Lean", author: "Ash Maurya" },
+                { title: "The Build Trap", author: "Melissa Perry" },
+                { title: "The Road Less Stupid", author: "Keith J. Cunningham" },
+                { title: "The 4 Disciplines of Execution (4DX)", author: "Chris McChesney, Sean Covey, and Jim Huling" },
+                { title: "The Purpose-Driven Life", author: "Rick Warren" },
+                { title: "Great One", author: "David Novak" },
+                { title: "Only the Paranoid Survive", author: "Andrew S. Grove" },
+                { title: "Inner Engineering", author: "Sadhguru" },
+                { title: "Breath", author: "James Nestor" },
+                { title: "Astrophysics for People in a Hurry", author: "Neil deGrasse Tyson" },
+                { title: "The Selfish Gene", author: "Richard Dawkins" },
+                { title: "American Icon", author: "Bryce G. Hoffman" },
+                { title: "The Six Habits of Growth", author: "Brendan Burchard" },
+                { title: "The Practicing Mind", author: "Thomas M. Sterner" },
+                { title: "The Four Agreements", author: "Don Miguel Ruiz" },
+                { title: "As a Man Thinketh", author: "James Allen" },
+                { title: "$100,000,000 Offers", author: "Alex Hormozi" },
+                { title: "Pitch Anything", author: "Oren Klaff" },
+                { title: "Venture Deals", author: "Brad Feld and Jason Mendelson" },
+                { title: "Unscripted", author: "M.J. DeMarco" },
+                { title: "The Obstacle is the Way", author: "Ryan Holiday" },
+                { title: "Ego is the Enemy", author: "Ryan Holiday" },
+                { title: "So Good They Can't Ignore You", author: "Cal Newport" },
+                { title: "Deep Work", author: "Cal Newport" },
+                { title: "First Things First", author: "Stephen R. Covey" },
+                { title: "Tiny Habits", author: "B.J. Fogg" },
+                { title: "Buy Back Your Time", author: "Dan Martell" },
+                { title: "The Idea in You", author: "Alex Pillow" },
+                { title: "What to Say When You Talk to Yourself", author: "Shad Helmstetter" },
+                { title: "The Science of Self-Discipline", author: "Peter Hollins" },
+                { title: "The Toilet Paper Entrepreneur", author: "Mike Michalowicz" },
+                { title: "The Innovator's Dilemma", author: "Clayton M. Christensen" },
+                { title: "The Infinite Game", author: "Simon Sinek" },
+                { title: "The Ideal Team Player", author: "Patrick Lencioni" },
+                { title: "Winning", author: "Jack Welch" },
+                { title: "Who", author: "Geoff Smart and Randy Street" },
+                { title: "What Are Your Blind Spots?", author: "Jim Haudan and Rich Berens" },
+                { title: "The Paradox of Choice", author: "Barry Schwartz" },
+                { title: "The Entrepreneur Rollercoaster", author: "Darren Hardy" },
+                { title: "The E-Myth", author: "Michael E. Gerber" },
+                { title: "The Compound Effect", author: "Darren Hardy" },
+                { title: "The 7 Habits of Highly Effective People", author: "Stephen R. Covey" },
+                { title: "The 21 Irrefutable Laws of Leadership", author: "John C. Maxwell" },
+                { title: "Measure What Matters", author: "John Doerr" },
+                { title: "Influence: The Psychology of Persuasion", author: "Robert B. Cialdini" },
+                { title: "Influence Without Authority", author: "David L. Bradford" },
+                { title: "Good Boss, Bad Boss", author: "Robert I. Sutton" },
+                { title: "First, Break All the Rules", author: "Marcus Buckingham" },
+                { title: "Failing Forward", author: "John C. Maxwell" },
+                { title: "Delivering Happiness", author: "Tony Hsieh" },
+                { title: "Think and Grow Rich", author: "Napoleon Hill" },
+                { title: "The Motive", author: "Patrick Lencioni" },
+                { title: "The Advantage", author: "Patrick Lencioni" },
+                { title: "Give and Take", author: "Adam Grant" },
+                { title: "Doing the Impossible", author: "Patrick Bet-David" },
+                { title: "The Energy Bus", author: "Jon Gordon" },
+                { title: "Measuring Success", author: "Gregg Brizendine" },
+                { title: "The Laws of Human Nature", author: "Robert Greene" },
+                { title: "Power Score", author: "Geoff Smart" },
+                { title: "Trailblazer", author: "Marc Benioff" },
+                { title: "Tribes", author: "Seth Godin" },
+                { title: "From Incremental to Exponential", author: "Vivek Wadhwa" },
+                { title: "The Effective Executive", author: "Peter F. Drucker" },
+                { title: "The Unicorn Project", author: "Gene Kim" },
+                { title: "Inspired", author: "Marty Cagan" },
+                { title: "The Lean Startup", author: "Eric Ries" },
+            ],
+            documentaries: [
+                { title: "Inside Bill's Brain: Decoding Bill Gates", author: "Netflix" },
+                { title: "The Social Dilemma", author: "Jeff Orlowski" },
+                { title: "Jiro Dreams of Sushi", author: "David Gelb" },
+            ],
+            movies: [
+                { title: "The Social Network", author: "David Fincher" },
+                { title: "The Pursuit of Happyness", author: "Gabriele Muccino" },
+                { title: "Joy", author: "David O. Russell" },
+            ],
+            articles: [
+                { title: "The Lean Startup Methodology", author: "Eric Ries" },
+                { title: "10 Things I Wish I Knew Before I Started My Business", author: "Inc.com" },
+                { title: "How to Build a Startup", author: "Y Combinator" },
+            ],
+            videos: [
+                { title: "How great leaders inspire action", author: "Simon Sinek (TED)" },
+                { title: "The single biggest reason why startups succeed", author: "Bill Gross (TED)" },
+                { title: "The power of vulnerability", author: "Brené Brown (TED)" },
+            ],
+            courses: [
+                { title: "CS50's Introduction to Computer Science", author: "Harvard University (edX)" },
+                { title: "Entrepreneurship 101", author: "MIT OpenCourseWare" },
+                { title: "Financial Markets", author: "Yale University (Coursera)" },
+            ],
+            programs: [
+                { title: "Y Combinator Startup School", author: "Y Combinator" },
+                { title: "Founder Institute", author: "Adeo Ressi & Jonathan Greechan" },
+                { title: "Techstars", author: "Various locations worldwide" },
+            ],
+            platforms: [
+                { title: "GitHub", author: "Version control and collaboration" },
+                { title: "VS Code", author: "Code editing and development" },
+                { title: "Docker", author: "Containerization and deployment" },
+                { title: "AWS", author: "Cloud infrastructure and services" },
+                { title: "React", author: "Frontend development" },
+                { title: "Node.js", author: "Backend development" },
+                { title: "PostgreSQL", author: "Database management" },
+                { title: "Vercel", author: "Deployment and hosting" },
+            ],
+        };
+
+        function updateResourceSection(section) {
+            const resourceSection = document.getElementById('resourceSection');
+            const resources = resourceMap[section] || [];
+            
+            let html = `
+                <h3>${section.charAt(0).toUpperCase() + section.slice(1)}</h3>
+                <p>Explore our curated list of ${section}.</p>
+                <div class="resource-list">
+            `;
+            
+            resources.forEach(resource => {
+                html += `
+                    <div class="resource-item">
+                        <strong>${resource.title}</strong>
+                        <p>${resource.author}</p>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            resourceSection.innerHTML = html;
+        }
+
+        const keyFactors = [
+            "Stress tolerance",
+            "Impulsivity Control",
+            "Discouragement is a joke, when you're all in",
+            "Harnessing discipline",
+            "Your close family and friends"
+        ];
+
+        function populateKeyFactors() {
+            const keyFactorsList = document.getElementById('keyFactors');
+            keyFactors.forEach(factor => {
+                const li = document.createElement('li');
+                li.textContent = factor;
+                keyFactorsList.appendChild(li);
+            });
+        }
+
+        const inspiringQuotes = [
+            {
+                quote: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                quote: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                author: "Winston Churchill"
+            },
+            {
+                quote: "The biggest risk is not taking any risk. In a world that's changing quickly, the only strategy that is guaranteed to fail is not taking risks.",
+                author: "Mark Zuckerberg"
+            },
+            {
+                quote: "The secret of getting ahead is getting started.",
+                author: "Mark Twain"
+            }
+        ];
+
+        function populateInspiringQuotes() {
+            const quotesContainer = document.getElementById('inspiringQuotes');
+            inspiringQuotes.forEach(item => {
+                const quoteCard = document.createElement('div');
+                quoteCard.className = 'card';
+                quoteCard.innerHTML = `
+                    <blockquote class="quote">${item.quote}</blockquote>
+                    <p class="quote-author">- ${item.author}</p>
+                `;
+                quotesContainer.appendChild(quoteCard);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createQuoteBackground();
+            updateResourceSection('audiobooks');
+            populateKeyFactors();
+            populateInspiringQuotes();
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    updateResourceSection(section);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
