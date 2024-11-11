@@ -182,15 +182,30 @@
     .nav-button svg {
         display: block;
     }
+    .profile p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #888;
+    }
+    .profile a {
+        color: #888;
+        text-decoration: none;
+    }
+    .profile a:hover {
+        text-decoration: underline;
+    }
 </style>
 </head>
 <body>
 <div class="quote-background" id="quoteBackground"></div>
 <header>
   <div class="profile" style="padding: 0.5rem 0;">
-      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0798-veGeabXlzzGHuD01vJwkx5fdvBUqSx.jpeg" alt="Chris Efkarpidis">
+      <a href="#" id="profileImageLink">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0798-veGeabXlzzGHuD01vJwkx5fdvBUqSx.jpeg" alt="Chris Efkarpidis">
+      </a>
       <div>
           <h1>Chris Efkarpidis</h1>
+          <p>Founder of <a href="https://www.boostedearnings.com" target="_blank" rel="noopener noreferrer">Boosted Earnings</a></p>
       </div>
   </div>
   <div class="nav-buttons">
@@ -206,6 +221,7 @@
         <p class="text-center max-w-3xl mx-auto">Here, I share valuable resources that you can utilize to fill the knowledge gap for you, this is for aspiring or established entrepreneurs. My goal is to provide as many high-value resources as possible to individuals that can utilize to eliminate making erroneous decisions and progress further into the nature of success. These resources, insights, and tools should inspire and guide you on your own path to an entrepreneurial victory. Remember, there aren't any secrets to success, it's just stuff you haven't learn yet. Ultimately, fear is the gravitational force holding you down, so learn to see far beyond it, do what it takes, that is whats required in order to achieve the unthinkable.</p>
     </section>
 
+    <h2>Resources for Growth and Success</h2>
     <div class="resource-buttons">
         <button class="resource-button" data-section="audiobooks">Audiobooks</button>
         <button class="resource-button" data-section="documentaries">Documentaries</button>
@@ -218,7 +234,6 @@
     </div>
 
     <section id="resourcesContent" class="hidden">
-        <h2>Resources for Growth and Success</h2>
         <div id="resourceSection"></div>
     </section>
 
@@ -500,6 +515,12 @@
         populateKeyFactors();
         populateInspiringQuotes();
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        document.getElementById('profileImageLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection('homeContent');
+            document.querySelectorAll('.resource-button').forEach(btn => btn.classList.remove('active'));
+        });
 
         document.getElementById('homeButton').addEventListener('click', function() {
             showSection('homeContent');
