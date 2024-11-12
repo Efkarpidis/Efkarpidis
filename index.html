@@ -349,13 +349,8 @@
             { title: '<a href="https://amzn.to/3ALJFKE" target="_blank" rel="noopener noreferrer">The Infinite Game</a>', author: '<a href="https://amzn.to/40LiN8e" target="_blank" rel="noopener noreferrer">Simon Sinek</a>' },
             { title: '<a href="https://amzn.to/3O66SdK" target="_blank" rel="noopener noreferrer">The Ideal Team Player: How to Recognize and Cultivate the Three Essential Virtues: A Leadership Fable</a>', author: '<a href="https://amzn.to/3AzwEE7" target="_blank" rel="noopener noreferrer">Patrick Lencioni</a>' },
             { title: '<a href="https://amzn.to/3O5sdnu" target="_blank" rel="noopener noreferrer">Winning</a>', author: '<a href="https://amzn.to/4fAdSeM" target="_blank" rel="noopener noreferrer">Jack Welch</a>' },
-            { title: '<a href="https://amzn.to/3Az20L3" target="_blank" rel="noopener noreferrer">Who: The A Method for Hiring</a>', author: '<a href="https://amzn.to/3CyMvmJ" target="_blank" rel="noopener noreferrer">Geoff Smart</a> and <a href="https://amzn.to/4hK9Ou4" target="_blank" rel="noopener noreferrer">Randy Street</a>' },
-            { title: '<a href="https://amzn.to/3CBiHWA" target="_blank" rel="noopener noreferrer">What Are Your Blind Spots?: Conquering the 5 Misconceptions That Hold Leaders Back</a>', author: '<a href="https://amzn.to/3ACEIE1" target="_blank" rel="noopener noreferrer">Jim Haudan</a> and <a href="https://amzn.to/3AEDb0c" target="_blank" rel="noopener noreferrer">Rich Berens</a>' },
-            { title: '<a href="https://amzn.to/3ACGjtv" target="_blank" rel="noopener noreferrer">The Compound Effect: Multiply Your Success One Simple Step at a Time</a>', author: '<a href="https://amzn.to/40KWkZa" target="_blank" rel="noopener noreferrer">Darren Hardy</a>' },
-            { title: '<a href="https://amzn.to/4fHaH4T" target="_blank" rel="noopener noreferrer">The 7 Habits of Highly Effective People</a>', author: '<a href="https://amzn.to/3UKBzJ6" target="_blank" rel="noopener noreferrer">Stephen R. Covey</a>' },
-            { title: '<a href="https://amzn.to/4feYDId" target="_blank" rel="noopener noreferrer">The 21 Irrefutable Laws of Leadership: Follow Them and People Will Follow You</a>', author: '<a href="https://amzn.to/4enn58V" target="_blank" rel="noopener noreferrer">John C. Maxwell</a>' },
-            { title: '<a href="https://amzn.to/3O3Cz7h" target="_blank" rel="noopener noreferrer">Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs</a>', author: '<a href="https://amzn.to/40E9mHK" target="_blank" rel="noopener noreferrer">John Doerr</a>' },
-            { title: '<a href="https://amzn.to/3Z1x1R0" target="_blank" rel="noopener noreferrer">Influence: The Psychology of Persuasion</a>', author: '<a href="https://amzn.to/3UPzgoh" target="_blank" rel="noopener noreferrer">Robert B. Cialdini</a>' },
+            { title: "Who: The A Method for Hiring", author: "Geoff Smart and Randy Street" },
+            { title: "What Are Your Blind Spots?: Conquering the 5 Misconceptions That Hold Leaders Back", author: "Jim Haudan and Rich Berens" },
             { title: "The Paradox of Choice: Why More is Less", author: "Barry Schwartz" },
             { title: "The Entrepreneur Roller Coaster: It's Your Turn to #JoinTheRide", author: "Darren Hardy" },
             { title: "The E-Myth: Why Most Small Businesses Don't Work and What to Do About It", author: "Michael E. Gerber" },
@@ -502,4 +497,54 @@
     function populateInspiringQuotes() {
         const quotesContainer = document.getElementById('inspiringQuotes');
         inspiringQuotes.forEach(item => {
-            const quoteCard = document.createElement('div
+            const quoteCard = document.createElement('div');
+            quoteCard.className = 'card';
+            quoteCard.innerHTML = `
+                <blockquote class="quote">${item.quote}</blockquote>
+                <p class="quote-author">- ${item.author}</p>
+            `;
+            quotesContainer.appendChild(quoteCard);
+        });
+    }
+
+    function showSection(sectionId) {
+        document.querySelectorAll('main > section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        createQuoteBackground();
+        populateKeyFactors();
+        populateInspiringQuotes();
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        document.getElementById('profileImageLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection('homeContent');
+            document.querySelectorAll('.resource-button').forEach(btn => btn.classList.remove('active'));
+        });
+
+        document.getElementById('homeButton').addEventListener('click', function() {
+            showSection('homeContent');
+            document.querySelectorAll('.resource-button').forEach(btn => btn.classList.remove('active'));
+        });
+
+        const resourceButtons = document.querySelectorAll('.resource-button');
+        resourceButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const section = this.getAttribute('data-section');
+                updateResourceSection(section);
+                showSection('resourcesContent');
+                document.querySelectorAll('.resource-button').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Show home content by default
+        showSection('homeContent');
+    });
+</script>
+</body>
+</html>
