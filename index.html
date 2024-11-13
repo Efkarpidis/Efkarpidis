@@ -232,7 +232,7 @@
     </section>
 
     <div class="resource-buttons">
-        <button class="resource-button" data-section="audiobooks">Audiobooks</button>
+        <button class="resource-button" data-section="booklist">Book List</button>
         <button class="resource-button" data-section="documentaries">Documentaries</button>
         <button class="resource-button" data-section="movies">Movies</button>
         <button class="resource-button" data-section="articles">Articles</button>
@@ -319,7 +319,7 @@
     }
 
     const resourceMap = {
-        audiobooks: [
+        booklist: [
             { title: '<a href="https://amzn.to/4hIiz7Q" target="_blank" rel="noopener noreferrer">Running Lean: Iterate from Plan A to a Plan That Works</a>', author: '<a href="https://amzn.to/4hLqjG8" target="_blank" rel="noopener noreferrer">Ash Maurya</a>' },
             { title: '<a href="https://amzn.to/4elEsXX" target="_blank" rel="noopener noreferrer">Escaping the Build Trap: How Effective Product Management Creates Real Value</a>', author: '<a href="https://amzn.to/4eGUv2N" target="_blank" rel="noopener noreferrer">Melissa Perri</a>' },
             { title: '<a href="https://amzn.to/48LMjNa" target="_blank" rel="noopener noreferrer">The Road Less Stupid: Advice from the Chairman of the Board</a>', author: '<a href="https://amzn.to/3O50AuP" target="_blank" rel="noopener noreferrer">Keith J. Cunningham</a>' },
@@ -349,8 +349,8 @@
             { title: '<a href="https://amzn.to/3ALJFKE" target="_blank" rel="noopener noreferrer">The Infinite Game</a>', author: '<a href="https://amzn.to/40LiN8e" target="_blank" rel="noopener noreferrer">Simon Sinek</a>' },
             { title: '<a href="https://amzn.to/3O66SdK" target="_blank" rel="noopener noreferrer">The Ideal Team Player: How to Recognize and Cultivate the Three Essential Virtues: A Leadership Fable</a>', author: '<a href="https://amzn.to/3AzwEE7" target="_blank" rel="noopener noreferrer">Patrick Lencioni</a>' },
             { title: '<a href="https://amzn.to/3O5sdnu" target="_blank" rel="noopener noreferrer">Winning</a>', author: '<a href="https://amzn.to/4fAdSeM" target="_blank" rel="noopener noreferrer">Jack Welch</a>' },
-            { title: "Who: The A Method for Hiring", author: "Geoff Smart and Randy Street" },
-            { title: "What Are Your Blind Spots?: Conquering the 5 Misconceptions That Hold Leaders Back", author: "Jim Haudan and Rich Berens" },
+            { title: '<a href="https://amzn.to/3YOyokM" target="_blank" rel="noopener noreferrer">Who: The A Method for Hiring</a>', author: '<a href="https://amzn.to/3Z0A38j" target="_blank" rel="noopener noreferrer">Geoff Smart</a> and <a href="https://amzn.to/3Z435E7" target="_blank" rel="noopener noreferrer">Randy Street</a>' },
+            { title: '<a href="https://amzn.to/4foWqdp" target="_blank" rel="noopener noreferrer">What Are Your Blind Spots?: Conquering the 5 Misconceptions That Hold Leaders Back</a>', author: '<a href="https://amzn.to/3YM4v4z" target="_blank" rel="noopener noreferrer">Jim Haudan</a> and <a href="https://amzn.to/4hK0Htn" target="_blank" rel="noopener noreferrer">Rich Berens</a>' },
             { title: "The Paradox of Choice: Why More is Less", author: "Barry Schwartz" },
             { title: "The Entrepreneur Roller Coaster: It's Your Turn to #JoinTheRide", author: "Darren Hardy" },
             { title: "The E-Myth: Why Most Small Businesses Don't Work and What to Do About It", author: "Michael E. Gerber" },
@@ -432,7 +432,7 @@
             <p>Explore our curated list of ${section}.</p>
         `;
 
-        if (section === 'audiobooks') {
+        if (section === 'booklist') {
             html += `
             <div class="quote-box">
                 <blockquote class="quote">
@@ -548,3 +548,5 @@
 </script>
 </body>
 </html>
+
+<merged_code>
